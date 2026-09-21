@@ -14,7 +14,7 @@ Strength meanings:
 - `balanced`: Make the medium clearly visible while keeping identity and scene structure stable.
 - `bold`: Push palette, line, texture, and material strongly; still preserve the requested invariants.
 
-## `soft-cel-editorial` — 柔和手绘动画
+## `soft-cel-editorial` — Soft Cel Editorial
 
 Best for lifestyle, travel, portraits, and calm storytelling. Default priority: high.
 
@@ -24,7 +24,7 @@ Fine natural hand-drawn contours, restrained cel-shaded light and shadow, bright
 
 Avoid glossy plastic skin, oversized anime eyes, childish proportions, or generic fantasy scenery.
 
-## `rounded-3d-character` — 圆润电影感 3D
+## `rounded-3d-character` — Rounded 3D Character
 
 Best for approachable personal brands, avatars, and polished lifestyle visuals. Default priority: medium.
 
@@ -34,7 +34,7 @@ Unmistakable high-end animated feature-film CG, not a retouched photograph. Pres
 
 Avoid photographic skin, live-action camera realism, toy packaging, chibi proportions, oversized heads or eyes, waxy skin, and generic doll faces.
 
-## `retro-pixel` — 复古像素
+## `retro-pixel` — Retro Pixel
 
 Best for technology, games, nostalgia, and playful X posts. Default priority: specialist.
 
@@ -44,7 +44,7 @@ Detailed 32-bit pixel art with a clearly visible pixel grid, limited warm palett
 
 Avoid game UI, score counters, text, extremely low-resolution blobs, or unrelated sprites.
 
-## `flat-social-illustration` — 扁平社媒插画
+## `flat-social-illustration` — Flat Social Illustration
 
 Best for education, product explainers, clean personal brands, and social covers. Default priority: high.
 
@@ -54,7 +54,7 @@ Premium flat editorial illustration with clean vector-like contours, simplified 
 
 Avoid generic iconography, corporate clip-art figures, tiny decorative symbols, and text.
 
-## `watercolor-journal` — 水彩旅行手帐
+## `watercolor-journal` — Watercolor Journal
 
 Best for travel, food, lifestyle, architecture, and reflective storytelling. Default priority: high.
 
@@ -64,7 +64,7 @@ Transparent watercolor glazing, naturally feathered edges, delicate pencil under
 
 Avoid children's coloring-book treatment, muddy color mixing, illegible faces, or excessive blank paper.
 
-## `pop-halftone-comic` — 波普网点漫画
+## `pop-halftone-comic` — Pop Halftone Comic
 
 Best for bold opinions, launches, announcements, and high-contrast X imagery. Default priority: medium.
 
@@ -74,7 +74,7 @@ Confident black ink contours, controlled high-saturation red-yellow-blue-cyan bl
 
 Avoid speech bubbles, captions, sound effects, superhero emblems, franchise costumes, or random typography.
 
-## `matte-clay` — 哑光黏土
+## `matte-clay` — Matte Clay
 
 Best for playful storytelling, approachable brands, and handcrafted visual identity. Default priority: specialist.
 
@@ -84,7 +84,7 @@ Strong, unmistakable handmade stop-motion modeling clay across the complete pers
 
 Avoid live-action skin or hair, photographic textures, plastic surfaces, toy boxes, oversized heads, simplified mitten hands, or generic figurine faces.
 
-## `neon-cyber` — 赛博霓虹
+## `neon-cyber` — Neon Cyber
 
 Best for AI, software, technology, night scenes, and energetic X posts. Default priority: medium.
 

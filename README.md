@@ -1,99 +1,131 @@
-# PaiShu · 一图多绘
+<h1 align="center">PaiShu Image Remix</h1>
 
-一个面向 Codex 的图片风格重绘 Skill：将同一张人物或场景照片转换为 8 种适合小红书与 X 分享的视觉风格，同时尽量保留人物辨识度、姿势、服装、手部和原始构图。
+<h3 align="center">One photo. Eight styles. Identity intact.</h3>
 
-![八风格效果预览](assets/style-board.png)
+<p align="center">
+  Turn portraits and scenes into platform-ready visuals for Xiaohongshu and X while preserving the subject, pose, hands, clothing, and composition.
+</p>
 
-## 核心能力
+<p align="center">
+  <a href="#install"><strong>Install</strong></a>
+  &nbsp;&bull;&nbsp;
+  <a href="#use-the-skill"><strong>Usage</strong></a>
+  &nbsp;&bull;&nbsp;
+  <a href="#the-eight-presets"><strong>Presets</strong></a>
+  &nbsp;&bull;&nbsp;
+  <a href="./README.zh-CN.md"><strong>简体中文</strong></a>
+</p>
 
-- 严格锁定人物身份、年龄、脸型、发型、表情、姿势和手部结构。
-- 提供 8 个经过实图测试的稳定预设。
-- 支持单一风格生成、完整八风格对比和智能风格推荐。
-- 默认生成兼容小红书与 X 的 3:4 竖图。
-- 每个风格独立生成，避免拼图生成导致的画质下降。
-- 自动检查身份漂移、额外手指、服装变化、随机文字和比例偏移。
-- 附带图片尺寸、比例和 5 MB 文件大小验证脚本。
+<p align="center">
+  <a href="https://github.com/kankanliuyi-lgtm/paishu-image-remix/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kankanliuyi-lgtm/paishu-image-remix?style=flat-square&color=FFD700"></a>
+  <img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-111827?style=flat-square">
+  <img alt="Presets" src="https://img.shields.io/badge/Presets-8-FF5A5F?style=flat-square">
+</p>
 
-## 八种正式风格
+![Eight-style comparison](assets/style-board.png)
 
-| ID | 中文名称 | 适用场景 |
-| --- | --- | --- |
-| `soft-cel-editorial` | 柔和手绘动画 | 生活方式、旅行、人像 |
-| `rounded-3d-character` | 圆润电影感 3D | 个人品牌、头像、轻松内容 |
-| `retro-pixel` | 复古像素 | 科技、游戏、怀旧内容 |
-| `flat-social-illustration` | 扁平社媒插画 | 教程、产品、知识分享 |
-| `watercolor-journal` | 水彩旅行手帐 | 旅行、美食、生活记录 |
-| `pop-halftone-comic` | 波普网点漫画 | 观点、发布、强视觉内容 |
-| `matte-clay` | 哑光黏土 | 趣味叙事、亲和品牌表达 |
-| `neon-cyber` | 赛博霓虹 | AI、软件、科技与夜景 |
+## What it does
 
-## 安装
+PaiShu Image Remix is a Codex Skill for repeatable, identity-preserving image style transfer. Give it one portrait or scene and it can produce a single selected style, recommend a style for the content, or generate the complete eight-style comparison set.
 
-将仓库克隆到 Codex Skills 目录：
+- Preserves facial identity, apparent age, expression, hair, pose, hands, clothing, accessories, subject placement, and key background geometry.
+- Uses eight tested presets with stable IDs and a fixed comparison order.
+- Generates every style as a separate image instead of asking an image model to draw a low-quality collage.
+- Reviews outputs for identity drift, broken hands, changed clothing, damaged landmarks, random text, logos, watermarks, and aspect-ratio drift.
+- Allows at most one targeted automatic correction per asset.
+- Defaults to a 3:4 portrait master that works well for both Xiaohongshu and X.
+
+## Install
+
+Clone the repository into your Codex Skills directory:
 
 ```bash
 git clone https://github.com/kankanliuyi-lgtm/paishu-image-remix.git ~/.codex/skills/paishu-image-remix
 ```
 
-重新开始一个 Codex 会话后，使用：
+Start a new Codex session, then invoke:
 
 ```text
 $paishu-image-remix
 ```
 
-## 使用示例
+## Use the skill
 
-完整八风格对比：
-
-```text
-使用 $paishu-image-remix，把这张照片生成完整的八风格对比图。严格保留人物身份、姿势、服装和手部，输出适合小红书与 X 的 3:4 图片。
-```
-
-生成单一风格：
+Generate the complete comparison set:
 
 ```text
-使用 $paishu-image-remix，将这张照片转换为 watercolor-journal 风格，身份优先级 strict，保留原始构图，不添加文字。
+Use $paishu-image-remix to turn this photo into the complete eight-style comparison. Preserve the subject's identity, pose, clothing, hands, and composition. Export 3:4 images for Xiaohongshu and X.
 ```
 
-让 Skill 推荐风格：
+Generate one preset:
 
 ```text
-使用 $paishu-image-remix，根据照片内容为小红书推荐最合适的风格并生成图片。
+Use $paishu-image-remix to transform this photo with the watercolor-journal preset. Use strict identity preservation, keep the original composition, and add no text.
 ```
 
-## 工作方式
+Ask for a recommendation:
 
-1. 识别照片中的身份、姿势、服装、手部、主体位置和背景地标。
-2. 根据内容与平台选择预设，或按固定顺序生成八种风格。
-3. 每个风格调用一次图片编辑能力，并重复身份与构图约束。
-4. 逐张检查结果；单张最多进行一次定向纠偏。
-5. 保存独立成品，并验证比例和文件大小。
+```text
+Use $paishu-image-remix to recommend the best preset for this photo and create a platform-ready result for Xiaohongshu.
+```
 
-详细规则见 [`SKILL.md`](SKILL.md)，完整风格配方见 [`references/style-presets.md`](references/style-presets.md)。
+## The eight presets
 
-## 输出建议
+| Preset ID | Display name | Best for |
+| --- | --- | --- |
+| `soft-cel-editorial` | Soft Cel Editorial | Lifestyle, travel, portraits |
+| `rounded-3d-character` | Rounded 3D Character | Personal brands, avatars, approachable visuals |
+| `retro-pixel` | Retro Pixel | Technology, games, nostalgia |
+| `flat-social-illustration` | Flat Social Illustration | Education, products, explainers |
+| `watercolor-journal` | Watercolor Journal | Travel, food, reflective storytelling |
+| `pop-halftone-comic` | Pop Halftone Comic | Opinions, launches, bold posts |
+| `matte-clay` | Matte Clay | Playful storytelling, handcrafted brands |
+| `neon-cyber` | Neon Cyber | AI, software, technology, night scenes |
 
-- 小红书与 X 通用：3:4 竖图，建议导出约 1080 × 1440。
-- 风格测试阶段不要在图片中直接生成标题或说明文字。
-- 发布 AI 生成或编辑图片时，请遵守对应平台的内容标识规则。
-- `scripts/validate-social-image.sh` 使用 macOS 的 `sips` 检查图片，属于可选辅助脚本。
+The full prompt recipes and avoid lists live in [`references/style-presets.md`](references/style-presets.md).
 
-## 项目结构
+## How it works
+
+1. Inspect the edit target at useful resolution.
+2. Identify identity anchors, pose, hands, clothing, foreground, background landmarks, light direction, and aspect ratio.
+3. Build the prompt from shared invariants plus exactly one preset recipe.
+4. Generate each requested style independently.
+5. Review identity, hands, clothing, composition, forbidden elements, and style strength.
+6. Save stable filenames and validate platform output when needed.
+
+See [`SKILL.md`](SKILL.md) for the complete operating instructions.
+
+## Output defaults
+
+- Shared Xiaohongshu/X master: 3:4 portrait, approximately 1080 × 1440.
+- Keep the face, hands, and key landmark inside the central safe area.
+- Do not generate headlines or captions inside the image during style transfer.
+- Prefer PNG for graphic and hard-edged styles; use high-quality JPEG for painterly or photo-like output when appropriate.
+- Keep files at or below 5 MB for broad X compatibility.
+- Follow each platform's AI-generated-content disclosure requirements when publishing.
+
+The optional [`scripts/validate-social-image.sh`](scripts/validate-social-image.sh) helper checks dimensions, ratio, and file size using macOS `sips`.
+
+## Repository layout
 
 ```text
 paishu-image-remix/
 ├── SKILL.md
-├── agents/openai.yaml
-├── assets/style-board.png
+├── agents/
+│   └── openai.yaml
+├── assets/
+│   └── style-board.png
 ├── references/
 │   ├── platform-output.md
 │   └── style-presets.md
-└── scripts/validate-social-image.sh
+└── scripts/
+    └── validate-social-image.sh
 ```
 
-## English summary
+## Contributing
 
-**PaiShu Image Remix** is a Codex Skill that turns one portrait or scene into eight identity-preserving visual styles for Xiaohongshu and X. It supports single-preset generation, full style comparisons, preset recommendations, strict face/pose/hand preservation, and practical 3:4 output validation.
+Bug reports, preset ideas, documentation improvements, and tested prompt refinements are welcome. Open an issue before proposing a broad workflow change so the behavior and compatibility goals stay clear.
 
-Invoke it with `$paishu-image-remix` after installation.
+## License
 
+No open-source license has been selected yet. Unless a license is added, all rights are reserved by the repository owner.
