@@ -2,7 +2,7 @@
 
 <p align="center"><a href="./README.md"><strong>English</strong></a></p>
 
-一个面向 Codex 的图片风格重绘 Skill：将同一张人物或场景照片转换为 8 种适合小红书与 X 分享的视觉风格，同时尽量保留人物辨识度、姿势、服装、手部和原始构图。
+一个兼容开放 Agent Skills 规范的图片风格重绘 Skill：将同一张人物或场景照片转换为 8 种适合小红书与 X 分享的视觉风格，同时尽量保留人物辨识度、姿势、服装、手部和原始构图。
 
 ![八风格效果预览](assets/style-board.png)
 
@@ -31,36 +31,67 @@
 
 ## 安装
 
-将仓库克隆到 Codex Skills 目录：
+推荐使用开放的 [Skills CLI](https://github.com/vercel-labs/skills) 全局安装（需要 Node.js 与 npm）：
 
 ```bash
-git clone https://github.com/kankanliuyi-lgtm/paishu-image-remix.git ~/.codex/skills/paishu-image-remix
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g
 ```
 
-重新开始一个 Codex 会话后，使用：
+安装器会自动检测本机兼容的 Agent，并让你选择安装目标。也可以直接指定：
+
+```bash
+# Codex
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a codex -y
+
+# Claude Code
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a claude-code -y
+
+# Cursor
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a cursor -y
+
+# Gemini CLI
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a gemini-cli -y
+
+# GitHub Copilot
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a github-copilot -y
+```
+
+该安装器目前支持 Codex、Claude Code、Cursor、Gemini CLI、GitHub Copilot、OpenCode、Cline、Windsurf 等多种兼容 Agent。完整列表见 [Supported Agents](https://github.com/vercel-labs/skills#supported-agents)。
+
+如果某个产品兼容 Agent Skills、但暂未被安装器收录，可以将本仓库克隆或复制到该产品文档指定的 Skills 目录，并确保 `SKILL.md` 位于安装后的 `paishu-image-remix` 文件夹根目录。
+
+如果只想检查仓库能否被识别，而不执行安装：
+
+```bash
+npx skills add kankanliuyi-lgtm/paishu-image-remix --list
+```
+
+安装后重新启动目标 Agent。在 Codex 中可以显式调用：
 
 ```text
 $paishu-image-remix
 ```
+
+其他 Agent 可通过各自的 Skill 选择器调用，或直接要求它“使用 `paishu-image-remix` skill”。不同产品的调用语法可能不同。
 
 ## 使用示例
 
 完整八风格对比：
 
 ```text
-使用 $paishu-image-remix，把这张照片生成完整的八风格对比图。严格保留人物身份、姿势、服装和手部，输出适合小红书与 X 的 3:4 图片。
+使用 paishu-image-remix skill，把这张照片生成完整的八风格对比图。严格保留人物身份、姿势、服装和手部，输出适合小红书与 X 的 3:4 图片。
 ```
 
 生成单一风格：
 
 ```text
-使用 $paishu-image-remix，将这张照片转换为 watercolor-journal 风格，身份优先级 strict，保留原始构图，不添加文字。
+使用 paishu-image-remix skill，将这张照片转换为 watercolor-journal 风格，身份优先级 strict，保留原始构图，不添加文字。
 ```
 
 让 Skill 推荐风格：
 
 ```text
-使用 $paishu-image-remix，根据照片内容为小红书推荐最合适的风格并生成图片。
+使用 paishu-image-remix skill，根据照片内容为小红书推荐最合适的风格并生成图片。
 ```
 
 ## 工作方式
@@ -95,6 +126,6 @@ paishu-image-remix/
 
 ## English summary
 
-**PaiShu Image Remix** is a Codex Skill that turns one portrait or scene into eight identity-preserving visual styles for Xiaohongshu and X. It supports single-preset generation, full style comparisons, preset recommendations, strict face/pose/hand preservation, and practical 3:4 output validation.
+**PaiShu Image Remix** is an Agent Skill that turns one portrait or scene into eight identity-preserving visual styles for Xiaohongshu and X. It supports single-preset generation, full style comparisons, preset recommendations, strict face/pose/hand preservation, and practical 3:4 output validation.
 
-Invoke it with `$paishu-image-remix` after installation.
+Install it with `npx skills add kankanliuyi-lgtm/paishu-image-remix -g`, then invoke it through your agent's skill interface.

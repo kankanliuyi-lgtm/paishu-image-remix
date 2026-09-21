@@ -18,7 +18,7 @@
 
 <p align="center">
   <a href="https://github.com/kankanliuyi-lgtm/paishu-image-remix/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kankanliuyi-lgtm/paishu-image-remix?style=flat-square&color=FFD700"></a>
-  <img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-111827?style=flat-square">
+  <img alt="Agent Skills compatible" src="https://img.shields.io/badge/Agent%20Skills-compatible-111827?style=flat-square">
   <img alt="Presets" src="https://img.shields.io/badge/Presets-8-FF5A5F?style=flat-square">
 </p>
 
@@ -26,7 +26,7 @@
 
 ## What it does
 
-PaiShu Image Remix is a Codex Skill for repeatable, identity-preserving image style transfer. Give it one portrait or scene and it can produce a single selected style, recommend a style for the content, or generate the complete eight-style comparison set.
+PaiShu Image Remix is an Agent Skill for repeatable, identity-preserving image style transfer. Give it one portrait or scene and it can produce a single selected style, recommend a style for the content, or generate the complete eight-style comparison set.
 
 - Preserves facial identity, apparent age, expression, hair, pose, hands, clothing, accessories, subject placement, and key background geometry.
 - Uses eight tested presets with stable IDs and a fixed comparison order.
@@ -37,36 +37,67 @@ PaiShu Image Remix is a Codex Skill for repeatable, identity-preserving image st
 
 ## Install
 
-Clone the repository into your Codex Skills directory:
+PaiShu Image Remix follows the open Agent Skills format. Install it globally with the [Skills CLI](https://github.com/vercel-labs/skills) (requires Node.js and npm):
 
 ```bash
-git clone https://github.com/kankanliuyi-lgtm/paishu-image-remix.git ~/.codex/skills/paishu-image-remix
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g
 ```
 
-Start a new Codex session, then invoke:
+The installer detects compatible agents on your machine and lets you choose the target. You can also name an agent explicitly:
+
+```bash
+# Codex
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a codex -y
+
+# Claude Code
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a claude-code -y
+
+# Cursor
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a cursor -y
+
+# Gemini CLI
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a gemini-cli -y
+
+# GitHub Copilot
+npx skills add kankanliuyi-lgtm/paishu-image-remix -g -a github-copilot -y
+```
+
+The CLI currently supports Codex, Claude Code, Cursor, Gemini CLI, GitHub Copilot, OpenCode, Cline, Windsurf, and many other Agent Skills-compatible tools. See the [complete supported-agent list](https://github.com/vercel-labs/skills#supported-agents).
+
+For an Agent Skills-compatible product that is not handled by the CLI, clone or copy this repository into that product's documented skills directory. Keep `SKILL.md` at the root of the installed `paishu-image-remix` folder.
+
+Verify that the repository is discoverable without installing it:
+
+```bash
+npx skills add kankanliuyi-lgtm/paishu-image-remix --list
+```
+
+After installation, restart the target agent. In Codex, you can invoke the skill explicitly with:
 
 ```text
 $paishu-image-remix
 ```
+
+In other agents, use the product's skill picker or ask it to use the `paishu-image-remix` skill. Invocation syntax varies by product.
 
 ## Use the skill
 
 Generate the complete comparison set:
 
 ```text
-Use $paishu-image-remix to turn this photo into the complete eight-style comparison. Preserve the subject's identity, pose, clothing, hands, and composition. Export 3:4 images for Xiaohongshu and X.
+Use the paishu-image-remix skill to turn this photo into the complete eight-style comparison. Preserve the subject's identity, pose, clothing, hands, and composition. Export 3:4 images for Xiaohongshu and X.
 ```
 
 Generate one preset:
 
 ```text
-Use $paishu-image-remix to transform this photo with the watercolor-journal preset. Use strict identity preservation, keep the original composition, and add no text.
+Use the paishu-image-remix skill to transform this photo with the watercolor-journal preset. Use strict identity preservation, keep the original composition, and add no text.
 ```
 
 Ask for a recommendation:
 
 ```text
-Use $paishu-image-remix to recommend the best preset for this photo and create a platform-ready result for Xiaohongshu.
+Use the paishu-image-remix skill to recommend the best preset for this photo and create a platform-ready result for Xiaohongshu.
 ```
 
 ## The eight presets
