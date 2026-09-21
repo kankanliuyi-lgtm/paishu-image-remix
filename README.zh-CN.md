@@ -4,7 +4,15 @@
 
 一个兼容开放 Agent Skills 规范的图片风格重绘 Skill：将同一张人物或场景照片转换为 8 种适合小红书与 X 分享的视觉风格，同时尽量保留人物辨识度、姿势、服装、手部和原始构图。
 
-![八风格效果预览](assets/style-board.png)
+## 八种风格展示
+
+| **柔和手绘动画** | **圆润电影感 3D** | **复古像素** | **扁平社媒插画** |
+| :---: | :---: | :---: | :---: |
+| ![柔和手绘动画](assets/examples/01-soft-cel-editorial.png) | ![圆润电影感 3D](assets/examples/02-rounded-3d-character.png) | ![复古像素](assets/examples/03-retro-pixel.png) | ![扁平社媒插画](assets/examples/04-flat-social-illustration.png) |
+
+| **水彩旅行手帐** | **波普网点漫画** | **哑光黏土** | **赛博霓虹** |
+| :---: | :---: | :---: | :---: |
+| ![水彩旅行手帐](assets/examples/05-watercolor-journal.png) | ![波普网点漫画](assets/examples/06-pop-halftone-comic.png) | ![哑光黏土](assets/examples/07-matte-clay.png) | ![赛博霓虹](assets/examples/08-neon-cyber.png) |
 
 ## 核心能力
 
@@ -117,7 +125,9 @@ $paishu-image-remix
 paishu-image-remix/
 ├── SKILL.md
 ├── agents/openai.yaml
-├── assets/style-board.png
+├── assets/
+│   ├── examples/01-...png 到 08-...png
+│   └── style-board.png
 ├── references/
 │   ├── platform-output.md
 │   └── style-presets.md

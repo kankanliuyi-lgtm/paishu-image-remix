@@ -22,7 +22,15 @@
   <img alt="Presets" src="https://img.shields.io/badge/Presets-8-FF5A5F?style=flat-square">
 </p>
 
-![Eight-style comparison](assets/style-board.png)
+## Eight styles at a glance
+
+| **Soft Cel Editorial** | **Rounded 3D Character** | **Retro Pixel** | **Flat Social Illustration** |
+| :---: | :---: | :---: | :---: |
+| ![Soft Cel Editorial](assets/examples/01-soft-cel-editorial.png) | ![Rounded 3D Character](assets/examples/02-rounded-3d-character.png) | ![Retro Pixel](assets/examples/03-retro-pixel.png) | ![Flat Social Illustration](assets/examples/04-flat-social-illustration.png) |
+
+| **Watercolor Journal** | **Pop Halftone Comic** | **Matte Clay** | **Neon Cyber** |
+| :---: | :---: | :---: | :---: |
+| ![Watercolor Journal](assets/examples/05-watercolor-journal.png) | ![Pop Halftone Comic](assets/examples/06-pop-halftone-comic.png) | ![Matte Clay](assets/examples/07-matte-clay.png) | ![Neon Cyber](assets/examples/08-neon-cyber.png) |
 
 ## What it does
 
@@ -145,6 +153,8 @@ paishu-image-remix/
 ├── agents/
 │   └── openai.yaml
 ├── assets/
+│   ├── examples/
+│   │   └── 01-...png through 08-...png
 │   └── style-board.png
 ├── references/
 │   ├── platform-output.md
