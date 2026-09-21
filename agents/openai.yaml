@@ -1,0 +1,5 @@
+interface:
+  display_name: "PaiShu · 一图多绘"
+  short_description: "一张照片生成八种社媒风格，并保留人物辨识度与原始构图"
+  default_prompt: "Use $paishu-image-remix to turn this photo into an identity-preserving eight-style comparison for Xiaohongshu and X."
+  brand_color: "#FF5A5F"
